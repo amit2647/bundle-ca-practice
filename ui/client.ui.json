@@ -1,0 +1,7 @@
+{
+  "ui:order": ["constitution", "client_type", "registration_no", "trust_reg_no"],
+  "constitution": {
+    "ui:enumNames": ["Proprietorship", "Partnership", "LLP", "Private Limited", "Public Limited", "Trust / NGO / Section 8", "HUF"]
+  },
+  "client_type": { "ui:widget": "radio", "ui:enumNames": ["Regular", "One-time"] }
+}

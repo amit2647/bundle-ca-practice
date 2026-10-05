@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "constitution": {
+      "type": "string",
+      "title": "Constitution",
+      "enum": ["proprietorship", "partnership", "llp", "pvt_ltd", "public_ltd", "trust", "huf"]
+    },
+    "client_type": {
+      "type": "string",
+      "title": "Client type",
+      "enum": ["regular", "one_time"],
+      "default": "regular"
+    },
+    "registration_no": {
+      "type": "string",
+      "title": "Registration / deed number",
+      "maxLength": 50
+    },
+    "trust_reg_no": {
+      "type": "string",
+      "title": "Trust registration number",
+      "maxLength": 50
+    }
+  },
+  "required": ["constitution"],
+  "allOf": [
+    {
+      "if": { "properties": { "constitution": { "const": "trust" } } },
+      "then": { "required": ["trust_reg_no"] }
+    }
+  ]
+}

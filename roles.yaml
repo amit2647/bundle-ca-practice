@@ -1,0 +1,99 @@
+# Role templates. Installed as custom roles of the firm (CA_PARTNER, …); the
+# firm can edit them, and an upgrade keeps the edit. None may hold system.*.
+roles:
+  - key: partner
+    name: Partner
+    description: Runs the practice — every client, fee, deadline, document and credential.
+    permissions:
+      - leads.read
+      - leads.create
+      - leads.update
+      - leads.delete
+      - customers.read
+      - customers.create
+      - customers.update
+      - customers.delete
+      - services.read
+      - reports.read
+      - communications.read
+      - communications.create
+      - email.send
+      - profiles.read
+      - profiles.update
+      - profiles.lock
+      - engagements.read
+      - engagements.update
+      - fees.read
+      - fees.update
+      - obligations.read
+      - obligations.update
+      - obligations.rules
+      - documents.read
+      - documents.generate
+      - vault.read
+      - vault.reveal
+      - vault.update
+      - files.read
+      - files.upload
+      - files.delete
+      - ca.udin.manage
+
+  - key: audit_manager
+    name: Audit Manager
+    description: Runs engagements day to day; cannot change fees or deadline rules.
+    permissions:
+      - leads.read
+      - leads.create
+      - leads.update
+      - customers.read
+      - customers.create
+      - customers.update
+      - services.read
+      - reports.read
+      - communications.read
+      - communications.create
+      - email.send
+      - profiles.read
+      - profiles.update
+      - profiles.lock
+      - engagements.read
+      - engagements.update
+      - fees.read
+      - obligations.read
+      - obligations.update
+      - documents.read
+      - documents.generate
+      - vault.read
+      - vault.reveal
+      - vault.update
+      - files.read
+      - files.upload
+      - files.delete
+      - ca.udin.manage
+
+  # No vault.reveal: a Partner grants it just in time, with a reason, when a
+  # return must be filed.
+  - key: article_assistant
+    name: Article Assistant
+    description: Prepares filings and documents; sees no passwords without a grant.
+    permissions:
+      - customers.read
+      - services.read
+      - profiles.read
+      - engagements.read
+      - obligations.read
+      - obligations.update
+      - documents.read
+      - vault.read
+      - files.read
+      - files.upload
+
+  - key: accounts_executive
+    name: Accounts Executive
+    description: Fees and payments.
+    permissions:
+      - customers.read
+      - profiles.read
+      - engagements.read
+      - fees.read
+      - fees.update

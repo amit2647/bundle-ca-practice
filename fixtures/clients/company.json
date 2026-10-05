@@ -1,0 +1,6 @@
+{
+  "name": "Acme Private Limited",
+  "attributes": { "constitution": "pvt_ltd", "client_type": "regular" },
+  "identifiers": { "pan": "AAACA1234A", "cin": "U72200MH2015PTC123456" },
+  "engaged": ["statutory_audit", "tax_audit", "gst_returns", "tds", "itr", "roc"]
+}

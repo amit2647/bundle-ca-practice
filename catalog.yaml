@@ -1,0 +1,32 @@
+# The 12 services of the client wizard (WIZ-07). Keys are permanent: deadline
+# rules and document templates refer to them.
+groups:
+  - { key: audit, label: Audit }
+  - { key: accounting, label: Accounting }
+  - { key: gst, label: GST }
+  - { key: compliance, label: Compliance }
+  - { key: payroll, label: Payroll }
+
+services:
+  - { key: statutory_audit, name: Statutory Audit, group: audit, description: Audit under the Companies Act 2013 (SA 210) }
+  - { key: tax_audit, name: Tax Audit, group: audit, description: "Audit under Sec 44AB, Form 3CA/3CB and 3CD" }
+  - { key: internal_audit, name: Internal Audit, group: audit, description: Quarterly internal audit and report }
+  - { key: accounting, name: Accounting, group: accounting, description: Bookkeeping and finalisation of accounts }
+  - { key: gst_returns, name: GST Returns, group: gst, description: Monthly GSTR-1 and GSTR-3B }
+  - { key: gstr9, name: GSTR-9 Annual Return, group: gst, description: Annual GST return }
+  - { key: gstr9c, name: GSTR-9C Reconciliation, group: gst, description: Annual GST reconciliation statement }
+  - { key: itr, name: Income Tax Return, group: compliance, description: Annual income tax return }
+  - { key: tds, name: TDS Returns, group: compliance, description: Quarterly TDS returns }
+  - { key: roc, name: ROC Compliance, group: compliance, description: "Annual ROC filings: AOC-4 and MGT-7" }
+  - { key: pf_esic, name: PF & ESIC, group: payroll, description: Provident fund and ESIC returns }
+  - { key: ptrc_ptec, name: PTRC / PTEC, group: payroll, description: Professional tax registration and returns }
+
+packages:
+  - key: company_annual
+    name: Company annual compliance
+    description: Statutory audit, income tax, TDS and ROC for a company
+    services: [statutory_audit, itr, tds, roc]
+  - key: gst_compliance
+    name: GST compliance
+    description: Monthly returns plus the annual return and reconciliation
+    services: [gst_returns, gstr9, gstr9c]

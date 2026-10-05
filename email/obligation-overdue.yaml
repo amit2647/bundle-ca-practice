@@ -1,0 +1,12 @@
+key: obligation_overdue
+name: Deadline overdue
+trigger: obligation.overdue
+subject: "Overdue: {{obligation.title}} (was due {{obligation.due_on}})"
+body: |
+  Dear {{client.name}},
+
+  {{obligation.title}} was due on {{obligation.due_on}} and has not been filed yet.
+  Please contact us as soon as possible so late fees and interest can be limited.
+
+  Regards,
+  {{organization.name}}

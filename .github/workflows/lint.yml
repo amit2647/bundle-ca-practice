@@ -1,0 +1,21 @@
+name: Lint
+
+# bundle-lint from bundle-sdk, pinned to a release: the same checks
+# bundle-service runs before every install.
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npx --yes --package=https://codeload.github.com/amit2647/bundle-sdk/tar.gz/280097d153636ac768ae227f61e8fc9cf208d93a bundle-lint .
