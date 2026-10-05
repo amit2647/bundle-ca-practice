@@ -1,0 +1,9 @@
+{
+  "ui:order": ["agm_on", "previous_auditor"],
+  "previous_auditor": {
+    "ui:order": ["firm", "frn", "address", "reason"],
+    "reason": {
+      "ui:enumNames": ["Rotation under Sec 139", "Resignation", "Decision at the AGM", "Other"]
+    }
+  }
+}

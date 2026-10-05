@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "agm_on": { "type": "string", "format": "date", "title": "AGM / board meeting date" },
+    "previous_auditor": {
+      "type": "object",
+      "title": "Previous auditor",
+      "properties": {
+        "firm": { "type": "string", "title": "Firm name", "maxLength": 200 },
+        "frn": { "type": "string", "title": "FRN / M.No.", "maxLength": 20 },
+        "address": { "type": "string", "title": "Address", "maxLength": 500 },
+        "reason": {
+          "type": "string",
+          "title": "Reason for change",
+          "enum": ["rotation", "resignation", "agm_decision", "other"]
+        }
+      }
+    }
+  }
+}

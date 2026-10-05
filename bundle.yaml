@@ -4,16 +4,17 @@
 # repo's CI and again by bundle-service before every install. Sections arrive
 # milestone by milestone. v0.1: catalog, roles, permissions, email and the
 # client vocabulary. v0.2 (M2): identifier rules by constitution, person,
-# firm and signing-partner fields.
+# firm and signing-partner fields. v0.3 (M3): the annual engagement per
+# financial year, with AGM date and previous auditor.
 key: ca-practice
 namespace: ca
-version: 0.2.0
+version: 0.3.0
 contract: 1
 name: CA Practice
 description: Clients, engagements per financial year, compliance deadlines, engagement letters and portal credentials for a chartered accountancy firm.
 
 requires:
-  capabilities: []
+  capabilities: [engagements]
 
 vocabulary:
   client: { one: Client, many: Clients }
@@ -28,6 +29,8 @@ profiles:
   person: { version: 1, schema: schemas/person.json }
   organization: { version: 1, schema: schemas/organization.json }
   professional: { version: 1, schema: schemas/professional.json }
+  engagement:
+    annual: { version: 1, schema: schemas/engagement-annual.json, ui: ui/engagement-annual.ui.json }
 
 identifiers:
   - { type: pan, label: PAN, pattern: "^[A-Z]{5}[0-9]{4}[A-Z]$", unique: true }
@@ -64,6 +67,19 @@ peopleRoles:
       - { when: { "==": [{ var: client.attributes.constitution }, proprietorship] }, label: Proprietor }
   - key: authorised_signatory
     label: Authorised signatory
+
+# One engagement per client per financial year (April–March), CD-09.
+engagementTypes:
+  - key: annual
+    name: Annual engagement
+    periodKind: financial_year
+    periodStartMonth: 4
+    stages:
+      - { key: appointed, label: Appointed }
+      - { key: planning, label: Planning }
+      - { key: fieldwork, label: Fieldwork }
+      - { key: reporting, label: Reporting }
+      - { key: completed, label: Completed }
 
 # Prospect board columns (PROS-01), mapped onto lead statuses.
 pipeline:
