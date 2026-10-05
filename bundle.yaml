@@ -2,11 +2,12 @@
 #
 # Versioned data, never code: validated by bundle-lint (bundle-sdk) in this
 # repo's CI and again by bundle-service before every install. Sections arrive
-# milestone by milestone; v0.1 carries what M1 installs (catalog, roles,
-# permissions, email) plus the client vocabulary and fields M2 builds on.
+# milestone by milestone. v0.1: catalog, roles, permissions, email and the
+# client vocabulary. v0.2 (M2): identifier rules by constitution, person,
+# firm and signing-partner fields.
 key: ca-practice
 namespace: ca
-version: 0.1.0
+version: 0.2.0
 contract: 1
 name: CA Practice
 description: Clients, engagements per financial year, compliance deadlines, engagement letters and portal credentials for a chartered accountancy firm.
@@ -22,14 +23,32 @@ vocabulary:
   document: { one: Document, many: Documents }
 
 profiles:
-  client: { version: 1, schema: schemas/client.json, ui: ui/client.ui.json }
+  client: { version: 2, schema: schemas/client.json, ui: ui/client.ui.json }
   lead: { version: 1, schema: schemas/lead.json }
+  person: { version: 1, schema: schemas/person.json }
+  organization: { version: 1, schema: schemas/organization.json }
+  professional: { version: 1, schema: schemas/professional.json }
 
 identifiers:
   - { type: pan, label: PAN, pattern: "^[A-Z]{5}[0-9]{4}[A-Z]$", unique: true }
-  - { type: cin, label: CIN, pattern: "^[LU][0-9]{5}[A-Z]{2}[0-9]{4}[A-Z]{3}[0-9]{6}$", unique: true }
-  - { type: llpin, label: LLPIN, pattern: "^[A-Z]{3}-[0-9]{4}$", unique: true }
-  - { type: tan, label: TAN, pattern: "^[A-Z]{4}[0-9]{5}[A-Z]$", unique: true }
+  # CIN for companies — required for private and public limited (WIZ-02/03).
+  - type: cin
+    label: CIN
+    pattern: "^[LU][0-9]{5}[A-Z]{2}[0-9]{4}[A-Z]{3}[0-9]{6}$"
+    unique: true
+    shownWhen: &company { in: [{ var: client.attributes.constitution }, [pvt_ltd, public_ltd]] }
+    requiredWhen: *company
+  - type: llpin
+    label: LLPIN
+    pattern: "^[A-Z]{3}-[0-9]{4}$"
+    unique: true
+    shownWhen: { "==": [{ var: client.attributes.constitution }, llp] }
+  # TAN for companies, LLPs and partnerships.
+  - type: tan
+    label: TAN
+    pattern: "^[A-Z]{4}[0-9]{5}[A-Z]$"
+    unique: true
+    shownWhen: { in: [{ var: client.attributes.constitution }, [pvt_ltd, public_ltd, llp, partnership]] }
   - { type: gstin, label: GSTIN, pattern: "^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z][1-9A-Z]Z[0-9A-Z]$", unique: true }
   - { type: din, label: DIN / DPIN, pattern: "^[0-9]{8}$", unique: false, appliesTo: person }
 

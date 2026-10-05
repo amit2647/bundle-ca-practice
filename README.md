@@ -16,7 +16,7 @@ as versioned data — never code. bundle-service installs it into an organizatio
 Deadline rules, engagement types, document templates and portals arrive with their milestones.
 
 ```bash
-npx --yes --package=https://codeload.github.com/amit2647/bundle-sdk/tar.gz/280097d153636ac768ae227f61e8fc9cf208d93a bundle-lint .
+npx --yes --package=https://codeload.github.com/amit2647/bundle-sdk/tar.gz/572a3c251063c08b6578b54e414a737c261ce575 bundle-lint .
 ```
 
 Keys (services, roles, rules…) are permanent once released. Version with semver: bundle-lint

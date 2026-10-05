@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "din": { "type": "string", "title": "DIN / DPIN", "pattern": "^[0-9]{8}$" },
+    "pan": { "type": "string", "title": "PAN", "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]$" },
+    "resolution_on": { "type": "string", "title": "Board resolution date", "format": "date" }
+  }
+}

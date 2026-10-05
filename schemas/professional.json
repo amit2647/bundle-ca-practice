@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "membership_no": { "type": "string", "title": "ICAI membership number", "pattern": "^[0-9]{6}$" },
+    "pan": { "type": "string", "title": "PAN", "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]$" }
+  }
+}

@@ -18,4 +18,4 @@ jobs:
         with:
           node-version: 22
 
-      - run: npx --yes --package=https://codeload.github.com/amit2647/bundle-sdk/tar.gz/280097d153636ac768ae227f61e8fc9cf208d93a bundle-lint .
+      - run: npx --yes --package=https://codeload.github.com/amit2647/bundle-sdk/tar.gz/572a3c251063c08b6578b54e414a737c261ce575 bundle-lint .

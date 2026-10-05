@@ -14,19 +14,19 @@
     },
     "registration_no": {
       "type": "string",
-      "title": "Registration / deed number",
+      "title": "Partnership deed / registration number",
       "maxLength": 50
     },
     "trust_reg_no": {
       "type": "string",
-      "title": "Trust registration number",
+      "title": "Trust registration number (trusts only)",
       "maxLength": 50
     }
   },
   "required": ["constitution"],
   "allOf": [
     {
-      "if": { "properties": { "constitution": { "const": "trust" } } },
+      "if": { "required": ["constitution"], "properties": { "constitution": { "const": "trust" } } },
       "then": { "required": ["trust_reg_no"] }
     }
   ]

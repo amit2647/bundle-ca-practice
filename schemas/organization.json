@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "properties": {
+    "frn": { "type": "string", "title": "Firm registration number (FRN)", "pattern": "^[0-9]{6}[A-Z]$" }
+  }
+}
