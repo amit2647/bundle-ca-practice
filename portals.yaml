@@ -1,0 +1,76 @@
+# The client portals a CA firm files on (CD-10): up to four fields each, the
+# password always secret. A portal is suggested for a client when its
+# condition holds; every portal can be filled in regardless.
+portals:
+  - key: income_tax
+    name: Income Tax (e-filing)
+    url: https://www.incometax.gov.in
+    fields:
+      - { key: user_id, label: User ID (PAN), secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: gst
+    name: GST portal
+    url: https://www.gst.gov.in
+    enabledWhen: { engaged: gst_returns }
+    fields:
+      - { key: username, label: Username, secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: mca21
+    name: MCA21
+    url: https://www.mca.gov.in
+    enabledWhen: { engaged: roc }
+    fields:
+      - { key: user_id, label: User ID, secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: tan_traces
+    name: TRACES (deductor)
+    url: https://www.tdscpc.gov.in
+    enabledWhen: { engaged: tds }
+    fields:
+      - { key: tan, label: TAN, secret: false }
+      - { key: user_id, label: User ID, secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: traces
+    name: TRACES (taxpayer)
+    url: https://www.tdscpc.gov.in
+    fields:
+      - { key: user_id, label: User ID (PAN), secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: e_invoicing
+    name: E-Invoicing
+    url: https://einvoice1.gst.gov.in
+    enabledWhen: { engaged: gst_returns }
+    fields:
+      - { key: username, label: Username, secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: e_waybill
+    name: E-Waybill
+    url: https://ewaybillgst.gov.in
+    enabledWhen: { engaged: gst_returns }
+    fields:
+      - { key: username, label: Username, secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: ptrc
+    name: Professional tax — PTRC
+    url: https://mahagst.gov.in
+    enabledWhen: { engaged: ptrc_ptec }
+    fields:
+      - { key: registration_no, label: PTRC number, secret: false }
+      - { key: username, label: Username, secret: false }
+      - { key: password, label: Password, secret: true }
+
+  - key: ptec
+    name: Professional tax — PTEC
+    url: https://mahagst.gov.in
+    enabledWhen: { engaged: ptrc_ptec }
+    fields:
+      - { key: registration_no, label: PTEC number, secret: false }
+      - { key: username, label: Username, secret: false }
+      - { key: password, label: Password, secret: true }

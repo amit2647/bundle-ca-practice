@@ -9,15 +9,18 @@
 # rules and reminders. v0.5 (M5): the eight letters, as skeletons — every
 # field, condition and pre-fill wired, the legal wording still marked
 # [Wording: …] for the firm to supply (they cannot be finalized until it is).
+# v0.6 (M6): the nine client portals for the credentials vault, the signed
+# consent that must be on file first, and the power of attorney listing only
+# the portals a client uses (FIX-22).
 key: ca-practice
 namespace: ca
-version: 0.5.0
+version: 0.6.0
 contract: 1
 name: CA Practice
 description: Clients, engagements per financial year, compliance deadlines, engagement letters and portal credentials for a chartered accountancy firm.
 
 requires:
-  capabilities: [engagements, obligations, documents]
+  capabilities: [engagements, obligations, documents, vault]
 
 vocabulary:
   client: { one: Client, many: Clients }
@@ -105,3 +108,9 @@ permissions:
 roles: roles.yaml
 email: email/
 help: knowledge/
+
+# Portal credentials are kept only once the client's signed consent and power
+# of attorney is on file (uploaded under this category).
+vault:
+  consentFileCategory: consent_poa_signed
+  portals: portals.yaml
