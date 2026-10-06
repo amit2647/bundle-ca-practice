@@ -1,0 +1,4 @@
+# Annual ROC filings after the year.
+rules:
+  - { key: aoc4, service: roc, name: AOC-4 (financial statements), revision: 1, kind: periodic, frequency: yearly, schedule: { date: "10-29" } }
+  - { key: mgt7, service: roc, name: MGT-7 (annual return), revision: 1, kind: periodic, frequency: yearly, schedule: { date: "11-28" } }

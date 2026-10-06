@@ -1,0 +1,7 @@
+# GST (Module 7): monthly returns on the 11th and 20th of the next month,
+# the annual return and reconciliation on 31 December after the year.
+rules:
+  - { key: gstr1, service: gst_returns, name: GSTR-1, revision: 1, kind: periodic, frequency: monthly, schedule: { day: 11, offsetMonths: 1 } }
+  - { key: gstr3b, service: gst_returns, name: GSTR-3B, revision: 1, kind: periodic, frequency: monthly, schedule: { day: 20, offsetMonths: 1 } }
+  - { key: gstr9, service: gstr9, name: GSTR-9 annual return, revision: 1, kind: periodic, frequency: yearly, schedule: { date: "12-31" } }
+  - { key: gstr9c, service: gstr9c, name: GSTR-9C reconciliation, revision: 1, kind: periodic, frequency: yearly, schedule: { date: "12-31" } }

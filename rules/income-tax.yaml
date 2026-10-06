@@ -1,0 +1,21 @@
+rules:
+  # Sec 44AB's own date is 30 September (FIX-20; the portal had 31 October).
+  # A CBDT extension is recorded per year as an extended due date.
+  - key: tax_audit_report
+    service: tax_audit
+    name: Tax audit report (Form 3CA/3CB & 3CD)
+    revision: 1
+    kind: periodic
+    frequency: yearly
+    schedule: { date: "09-30" }
+
+  # 31 October when a tax audit is engaged, otherwise 31 July.
+  - key: itr
+    service: itr
+    name: Income tax return
+    revision: 1
+    kind: periodic
+    frequency: yearly
+    condition: { engaged: tax_audit }
+    schedule: { date: "10-31" }
+    else: { date: "07-31" }

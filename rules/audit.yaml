@@ -1,0 +1,17 @@
+rules:
+  - key: statutory_audit_report
+    service: statutory_audit
+    name: Statutory audit report (incl. CARO)
+    revision: 1
+    kind: periodic
+    frequency: yearly
+    schedule: { date: "09-30" }
+
+  # The 15th after each quarter: Jun, Sep, Dec, Mar.
+  - key: internal_audit_report
+    service: internal_audit
+    name: Internal audit report
+    revision: 1
+    kind: periodic
+    frequency: quarterly
+    schedule: { day: 15, offsetMonths: 1 }
