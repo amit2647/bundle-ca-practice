@@ -1,0 +1,11 @@
+<p class="subject">Special power of attorney</p>
+<p>Executed at {{fields.place}} on {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}{{#if fields.stamp_value}}, on stamp paper of {{money fields.stamp_value}}{{/if}}.</p>
+<p>{{client.name}}, PAN {{client.identifiers.pan}}, of {{client.address}}, acting through {{client.signatory.name}}, appoints {{firm.name}}, Chartered Accountants (FRN {{firm.frn}}), through {{signatory.name}} (Membership No. {{signatory.membership_no}}), as its attorney.</p>
+<p><mark class="doc-placeholder">[Wording: powers granted: use of the digital signature certificate and access to the client's government portals]</mark></p><p><mark class="doc-placeholder">[Wording: the portals covered (to list only the portals the client uses — FIX-22, with the credentials vault)]</mark></p>
+<p>This power is valid for {{fields.valid_months}} months and may be revoked by {{fields.revocation_days}} days' written notice. {{#if fields.sub_delegation}}The attorney may delegate these powers to its staff.{{else}}The attorney may not delegate these powers.{{/if}}</p>
+<footer class="signature">
+  <p>For {{client.name}}<br>{{client.signatory.name}}</p>
+  <p class="signature-space"></p>
+  <p>Accepted: {{signatory.name}}, for {{firm.name}}</p>
+  <p>Witnesses: 1. {{fields.witness_one}} &nbsp;&nbsp; 2. {{fields.witness_two}}</p>
+</footer>

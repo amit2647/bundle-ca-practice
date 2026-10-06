@@ -1,0 +1,25 @@
+<p class="letter-meta">Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">{{firm.name}}<br>Chartered Accountants<br>{{firm.address}}</p>
+<p class="subject">Subject: Representation letter for the tax audit of {{client.name}} (PAN {{client.identifiers.pan}}) under Section 44AB for the year ending {{date period.end}} (SA 580)</p>
+<p>Dear Sirs,</p>
+<p><mark class="doc-placeholder">[Wording: purpose of the letter and the assessee's responsibility]</mark></p>
+<table class="representations">
+<tr><td>Turnover / gross receipts</td><td>{{#if fields.turnover}}{{money fields.turnover}}{{else}}{{fields.turnover}}{{/if}}</td></tr>
+<tr><td>Method of accounting</td><td>{{#if (eq fields.accounting_method "cash")}}Cash{{else}}Mercantile{{/if}}</td></tr>
+<tr><td>Valuation of stock</td><td>{{fields.stock_valuation}}</td></tr>
+<tr><td>TDS / TCS</td><td class="{{#if fields.tds_tcs_compliant}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.tds_tcs_compliant}}Deducted / collected and paid{{else}}Defaults exist{{/if}}</td></tr>
+<tr><td>Cash payments, Section 40A(3)</td><td class="{{#if fields.cash_payments_40a3}}doc-adverse{{else}}doc-favourable{{/if}}">{{#if fields.cash_payments_40a3}}Payments above the limit were made{{else}}None above the limit{{/if}}</td></tr>
+<tr><td>Sections 269SS / 269T</td><td class="{{#if fields.loans_269ss_269t}}doc-adverse{{else}}doc-favourable{{/if}}">{{#if fields.loans_269ss_269t}}Cash loans taken or repaid{{else}}None{{/if}}</td></tr>
+<tr><td>Donations</td><td>{{#if fields.donations}}{{money fields.donations}}{{else}}{{fields.donations}}{{/if}}</td></tr>
+<tr><td>Depreciation</td><td class="{{#if fields.depreciation_as_per_act}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.depreciation_as_per_act}}As per the Act{{else}}Not as per the Act{{/if}}</td></tr>
+<tr><td>Capital gains</td><td>{{#if fields.capital_gains}}Arose during the year{{else}}None{{/if}}</td></tr>
+<tr><td>Advance tax</td><td>{{#if fields.advance_tax}}{{money fields.advance_tax}}{{else}}{{fields.advance_tax}}{{/if}}</td></tr>
+<tr><td>Self-assessment tax</td><td>{{#if fields.self_assessment_tax}}{{money fields.self_assessment_tax}}{{else}}{{fields.self_assessment_tax}}{{/if}}</td></tr>
+<tr><td>GST reconciliation</td><td class="{{#if fields.gst_reconciled}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.gst_reconciled}}Reconciled with the books{{else}}Differences remain{{/if}}</td></tr>
+</table>
+<p><mark class="doc-placeholder">[Wording: further representations for Form 3CD]</mark></p>
+<footer class="signature">
+  <p>For {{client.name}}</p>
+  <p class="signature-space"></p>
+  <p>{{fields.signatory_one}}</p>
+</footer>

@@ -1,0 +1,18 @@
+<header class="letterhead">
+  <strong>{{firm.name}}</strong>
+  <span>Chartered Accountants · FRN {{firm.frn}}</span>
+  <span>{{firm.address}}</span>
+</header>
+<p class="letter-meta">Ref: {{fields.reference}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">{{fields.auditor_firm}}<br>FRN / M.No. {{fields.auditor_frn}}<br>{{fields.auditor_address}}</p>
+<p class="subject">Subject: Audit of {{client.name}} for the year ending {{date period.end}} — communication under Clause (8) of Part I of the First Schedule to the Chartered Accountants Act, 1949</p>
+<p>Dear Sirs,</p>
+<p><mark class="doc-placeholder">[Wording: notice of the proposed appointment and request for any professional reasons not to accept it]</mark></p>
+<p>We understand the change arises from: {{fields.reason}}.</p>
+<p>We would be grateful for your reply within {{fields.reply_days}} days of this letter.</p>
+<footer class="signature">
+  <p>For {{firm.name}}<br>Chartered Accountants<br>FRN {{firm.frn}}</p>
+  <p class="signature-space"></p>
+  <p>{{signatory.name}}<br>{{signatory.designation}}<br>Membership No. {{signatory.membership_no}}</p>
+  <p>Place: {{firm.city}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+</footer>

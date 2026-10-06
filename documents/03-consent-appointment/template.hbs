@@ -1,0 +1,20 @@
+<header class="letterhead">
+  <strong>{{firm.name}}</strong>
+  <span>Chartered Accountants · FRN {{firm.frn}}</span>
+  <span>{{firm.address}}</span>
+</header>
+<p class="letter-meta">Ref: {{fields.reference}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">The Board of Directors<br>{{client.name}}<br>{{client.address}}<br>CIN: {{client.identifiers.cin}}</p>
+<p class="subject">Subject: Consent to act as statutory auditor and certificate under Section 141 of the Companies Act, 2013</p>
+<p>Dear Sirs,</p>
+<p><mark class="doc-placeholder">[Wording: consent to the appointment under Section 139]</mark></p>
+<p>The appointment is proposed by {{#if (eq fields.resolution_type "board")}}the Board of Directors{{else}}{{#if (eq fields.resolution_type "egm")}}an extraordinary general meeting{{else}}the annual general meeting{{/if}}{{/if}} by resolution dated {{#if fields.resolution_date}}{{date fields.resolution_date}}{{else}}{{fields.resolution_date}}{{/if}}, for a period of {{fields.period_years}} years.</p>
+{{#if fields.replacing}}<p>The appointment is in place of {{fields.replacing}}.</p>{{/if}}
+<p><mark class="doc-placeholder">[Wording: eligibility certificate under Section 141 and the Companies (Audit and Auditors) Rules, 2014]</mark></p>
+<p>{{#if (eq fields.peer_review "valid")}}The firm holds a valid peer review certificate issued by the Peer Review Board of the ICAI.{{else}}{{#if (eq fields.peer_review "applied")}}The firm has applied for peer review.{{/if}}{{/if}}</p>
+<footer class="signature">
+  <p>For {{firm.name}}<br>Chartered Accountants<br>FRN {{firm.frn}}</p>
+  <p class="signature-space"></p>
+  <p>{{signatory.name}}<br>{{signatory.designation}}<br>Membership No. {{signatory.membership_no}}</p>
+  <p>Place: {{firm.city}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+</footer>

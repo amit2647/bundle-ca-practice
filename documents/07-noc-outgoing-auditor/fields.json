@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "title": "Reference number",
+      "maxLength": 60
+    },
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "auditor_firm": {
+      "type": "string",
+      "title": "Outgoing auditor",
+      "maxLength": 200
+    },
+    "outstanding_fees": {
+      "type": "number",
+      "minimum": 0,
+      "title": "Fees outstanding",
+      "default": 0
+    },
+    "reason": {
+      "type": "string",
+      "title": "Reason for change",
+      "maxLength": 300
+    },
+    "working_papers": {
+      "type": "boolean",
+      "title": "Working papers made available",
+      "default": true
+    }
+  },
+  "required": [
+    "letter_date",
+    "auditor_firm"
+  ]
+}

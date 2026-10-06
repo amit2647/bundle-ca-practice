@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "revenue": {
+      "type": "number",
+      "title": "Revenue from operations"
+    },
+    "profit": {
+      "type": "number",
+      "title": "Profit / (loss) before tax"
+    },
+    "net_worth": {
+      "type": "number",
+      "title": "Net worth"
+    },
+    "uncorrected_misstatements": {
+      "type": "string",
+      "title": "Uncorrected misstatements",
+      "enum": [
+        "none",
+        "immaterial",
+        "listed"
+      ],
+      "default": "none"
+    },
+    "statutory_dues_paid": {
+      "type": "boolean",
+      "title": "Statutory dues paid on time",
+      "default": true
+    },
+    "ifc_effective": {
+      "type": "boolean",
+      "title": "Internal financial controls effective",
+      "default": true
+    },
+    "fraud_known": {
+      "type": "boolean",
+      "title": "Any fraud known",
+      "default": false
+    },
+    "non_compliance": {
+      "type": "boolean",
+      "title": "Any non-compliance with laws",
+      "default": false
+    },
+    "related_parties_disclosed": {
+      "type": "boolean",
+      "title": "All related parties disclosed",
+      "default": true
+    },
+    "contingencies": {
+      "type": "string",
+      "title": "Contingent liabilities",
+      "maxLength": 1000
+    },
+    "subsequent_events": {
+      "type": "string",
+      "title": "Events after the balance sheet date",
+      "maxLength": 1000
+    },
+    "roc_filings_current": {
+      "type": "boolean",
+      "title": "ROC filings up to date",
+      "default": true
+    },
+    "registers_maintained": {
+      "type": "boolean",
+      "title": "Statutory registers maintained",
+      "default": true
+    },
+    "signatory_one": {
+      "type": "string",
+      "title": "First signatory",
+      "maxLength": 120
+    },
+    "signatory_two": {
+      "type": "string",
+      "title": "Second signatory",
+      "maxLength": 120
+    }
+  },
+  "required": [
+    "letter_date",
+    "signatory_one"
+  ]
+}

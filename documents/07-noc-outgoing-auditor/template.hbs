@@ -1,0 +1,14 @@
+<header class="letterhead"><strong>{{fields.auditor_firm}}</strong><span>Chartered Accountants</span></header>
+<p class="letter-meta">Ref: {{fields.reference}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">{{firm.name}}<br>Chartered Accountants<br>{{firm.address}}</p>
+<p class="subject">Subject: No objection to your appointment as auditor of {{client.name}} for the year ending {{date period.end}}</p>
+<p>Dear Sirs,</p>
+<p><mark class="doc-placeholder">[Wording: no-objection statement and confirmation that no professional reason prevents the appointment]</mark></p>
+<p>The change arises from: {{fields.reason}}.</p>
+<p>{{#if fields.outstanding_fees}}Fees of {{money fields.outstanding_fees}} remain outstanding.{{else}}No fees remain outstanding.{{/if}}</p>
+<p>{{#if fields.working_papers}}Our working papers will be made available to you on request.{{else}}Our working papers are not being made available.{{/if}}</p>
+<footer class="signature">
+  <p>For {{fields.auditor_firm}}</p>
+  <p class="signature-space"></p>
+  <p>Partner</p>
+</footer>

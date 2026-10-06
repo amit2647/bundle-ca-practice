@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "title": "Reference number",
+      "maxLength": 60
+    },
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "addressee": {
+      "type": "string",
+      "title": "Addressed to",
+      "default": "The Board of Directors",
+      "maxLength": 200
+    },
+    "fee": {
+      "type": "number",
+      "minimum": 0,
+      "title": "Audit fee"
+    },
+    "expenses": {
+      "type": "number",
+      "minimum": 0,
+      "title": "Out-of-pocket expenses"
+    },
+    "framework": {
+      "type": "string",
+      "title": "Accounting framework",
+      "enum": [
+        "as",
+        "ind_as"
+      ],
+      "default": "as"
+    },
+    "scope_gst": {
+      "type": "boolean",
+      "title": "Scope includes GST review",
+      "default": false
+    },
+    "scope_roc": {
+      "type": "boolean",
+      "title": "Scope includes ROC filings",
+      "default": false
+    },
+    "scope_internal_audit": {
+      "type": "boolean",
+      "title": "Scope includes internal audit",
+      "default": false
+    },
+    "caro": {
+      "type": "boolean",
+      "title": "CARO 2020 applies",
+      "default": true
+    },
+    "ifc": {
+      "type": "boolean",
+      "title": "Report on internal financial controls",
+      "default": true
+    }
+  },
+  "required": [
+    "reference",
+    "letter_date",
+    "addressee",
+    "fee"
+  ]
+}

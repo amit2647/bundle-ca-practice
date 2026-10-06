@@ -6,16 +6,18 @@
 # client vocabulary. v0.2 (M2): identifier rules by constitution, person,
 # firm and signing-partner fields. v0.3 (M3): the annual engagement per
 # financial year, with AGM date and previous auditor. v0.4 (M4): deadline
-# rules and reminders.
+# rules and reminders. v0.5 (M5): the eight letters, as skeletons — every
+# field, condition and pre-fill wired, the legal wording still marked
+# [Wording: …] for the firm to supply (they cannot be finalized until it is).
 key: ca-practice
 namespace: ca
-version: 0.4.0
+version: 0.5.0
 contract: 1
 name: CA Practice
 description: Clients, engagements per financial year, compliance deadlines, engagement letters and portal credentials for a chartered accountancy firm.
 
 requires:
-  capabilities: [engagements, obligations]
+  capabilities: [engagements, obligations, documents]
 
 vocabulary:
   client: { one: Client, many: Clients }
@@ -94,6 +96,8 @@ catalog: catalog.yaml
 # deadlines. Accounting, PF & ESIC and PTRC/PTEC have no rules yet — to be
 # confirmed with a practising CA before they are added.
 obligations: rules/
+# One folder per letter; the numbers set the order they are offered in (DOC-01–08).
+documents: documents/
 
 permissions:
   - { code: ca.udin.manage, name: Manage UDINs, description: Record and update UDINs against signed reports }

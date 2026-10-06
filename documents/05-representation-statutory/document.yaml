@@ -1,0 +1,5 @@
+key: representation_statutory
+name: "Management representation — Statutory audit"
+revision: 1
+badge: SA 580
+enabledWhen: {"engaged": "statutory_audit"}

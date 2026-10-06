@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "properties": {
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "turnover": {
+      "type": "number",
+      "title": "Turnover / gross receipts"
+    },
+    "accounting_method": {
+      "type": "string",
+      "title": "Method of accounting",
+      "enum": [
+        "mercantile",
+        "cash"
+      ],
+      "default": "mercantile"
+    },
+    "stock_valuation": {
+      "type": "string",
+      "title": "Valuation of stock",
+      "maxLength": 200
+    },
+    "tds_tcs_compliant": {
+      "type": "boolean",
+      "title": "TDS / TCS deducted and paid",
+      "default": true
+    },
+    "cash_payments_40a3": {
+      "type": "boolean",
+      "title": "Cash payments over the 40A(3) limit",
+      "default": false
+    },
+    "loans_269ss_269t": {
+      "type": "boolean",
+      "title": "Loans taken or repaid in cash (269SS / 269T)",
+      "default": false
+    },
+    "donations": {
+      "type": "number",
+      "title": "Donations"
+    },
+    "depreciation_as_per_act": {
+      "type": "boolean",
+      "title": "Depreciation as per the Act",
+      "default": true
+    },
+    "capital_gains": {
+      "type": "boolean",
+      "title": "Capital gains during the year",
+      "default": false
+    },
+    "advance_tax": {
+      "type": "number",
+      "title": "Advance tax paid"
+    },
+    "self_assessment_tax": {
+      "type": "number",
+      "title": "Self-assessment tax paid"
+    },
+    "gst_reconciled": {
+      "type": "boolean",
+      "title": "GST turnover and ITC reconciled with books",
+      "default": true
+    },
+    "signatory_one": {
+      "type": "string",
+      "title": "Signatory",
+      "maxLength": 120
+    }
+  },
+  "required": [
+    "letter_date",
+    "signatory_one"
+  ]
+}

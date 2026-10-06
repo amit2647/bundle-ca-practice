@@ -1,0 +1,5 @@
+key: noc_outgoing_auditor
+name: "No-objection certificate (draft for the outgoing auditor)"
+revision: 1
+badge: Conditional
+enabledWhen: {"filled": {"var": "engagement.attributes.previous_auditor.firm"}}

@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "title": "Reference number",
+      "maxLength": 60
+    },
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "resolution_type": {
+      "type": "string",
+      "title": "Appointed by",
+      "enum": [
+        "board",
+        "agm",
+        "egm"
+      ],
+      "default": "agm"
+    },
+    "resolution_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of resolution"
+    },
+    "period_years": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "title": "Appointment period (years)",
+      "default": 5
+    },
+    "replacing": {
+      "type": "string",
+      "title": "Auditor being replaced",
+      "maxLength": 200
+    },
+    "peer_review": {
+      "type": "string",
+      "title": "Peer review",
+      "enum": [
+        "valid",
+        "applied",
+        "not_applicable"
+      ],
+      "default": "valid"
+    },
+    "firm_type": {
+      "type": "string",
+      "title": "Firm type",
+      "enum": [
+        "partnership",
+        "llp",
+        "proprietorship"
+      ],
+      "default": "partnership"
+    }
+  },
+  "required": [
+    "letter_date",
+    "resolution_type"
+  ]
+}

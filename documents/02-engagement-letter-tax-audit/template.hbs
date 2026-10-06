@@ -1,0 +1,20 @@
+<header class="letterhead">
+  <strong>{{firm.name}}</strong>
+  <span>Chartered Accountants · FRN {{firm.frn}}</span>
+  <span>{{firm.address}}</span>
+</header>
+<p class="letter-meta">Ref: {{fields.reference}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">{{client.name}}<br>{{client.address}}<br>PAN: {{client.identifiers.pan}}</p>
+<p class="subject">Subject: Tax audit under Section 44AB of the Income-tax Act, 1961 for Assessment Year {{fields.assessment_year}}</p>
+<p>Dear Sir / Madam,</p>
+<p><mark class="doc-placeholder">[Wording: objective and scope of the tax audit (SA 210, Section 44AB)]</mark></p>
+<p>The audit report will be in Form {{fields.form}} with the particulars in Form 3CD, due on {{#if fields.due_date}}{{date fields.due_date}}{{else}}{{fields.due_date}}{{/if}}. The turnover / gross receipts stated for the year are {{#if fields.turnover}}{{money fields.turnover}}{{else}}{{fields.turnover}}{{/if}}.</p>
+{{#if fields.within_limit}}<p>This engagement is within the limit of tax audit assignments specified by the Institute.</p>{{/if}}
+<p><mark class="doc-placeholder">[Wording: responsibilities of the assessee and of the auditor]</mark></p>
+<p>Our fee for the tax audit is {{#if fields.fee}}{{money fields.fee}}{{else}}{{fields.fee}}{{/if}}, plus applicable taxes.</p>
+<p><mark class="doc-placeholder">[Wording: acceptance and acknowledgement]</mark></p><footer class="signature">
+  <p>For {{firm.name}}<br>Chartered Accountants<br>FRN {{firm.frn}}</p>
+  <p class="signature-space"></p>
+  <p>{{signatory.name}}<br>{{signatory.designation}}<br>Membership No. {{signatory.membership_no}}</p>
+  <p>Place: {{firm.city}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+</footer>

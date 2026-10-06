@@ -1,0 +1,22 @@
+{
+  "letter_date": {
+    "ui:prefill": "today",
+    "ui:widget": "date"
+  },
+  "signatory_one": {
+    "ui:prefill": "client.signatory.name"
+  },
+  "uncorrected_misstatements": {
+    "ui:enumNames": [
+      "None",
+      "Immaterial, individually and together",
+      "Listed in the attached schedule"
+    ]
+  },
+  "contingencies": {
+    "ui:widget": "textarea"
+  },
+  "subsequent_events": {
+    "ui:widget": "textarea"
+  }
+}

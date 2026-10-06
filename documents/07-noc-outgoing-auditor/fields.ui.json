@@ -1,0 +1,12 @@
+{
+  "letter_date": {
+    "ui:prefill": "today",
+    "ui:widget": "date"
+  },
+  "auditor_firm": {
+    "ui:prefill": "engagement.attributes.previous_auditor.firm"
+  },
+  "reason": {
+    "ui:widget": "textarea"
+  }
+}

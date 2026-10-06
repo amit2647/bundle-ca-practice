@@ -1,0 +1,15 @@
+{
+  "letter_date": {
+    "ui:prefill": "today",
+    "ui:widget": "date"
+  },
+  "signatory_one": {
+    "ui:prefill": "client.signatory.name"
+  },
+  "accounting_method": {
+    "ui:enumNames": [
+      "Mercantile",
+      "Cash"
+    ]
+  }
+}

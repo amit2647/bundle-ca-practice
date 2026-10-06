@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "title": "Reference number",
+      "maxLength": 60
+    },
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "auditor_firm": {
+      "type": "string",
+      "title": "Previous auditor",
+      "maxLength": 200
+    },
+    "auditor_frn": {
+      "type": "string",
+      "title": "FRN / M.No.",
+      "maxLength": 20
+    },
+    "auditor_address": {
+      "type": "string",
+      "title": "Address",
+      "maxLength": 500
+    },
+    "reason": {
+      "type": "string",
+      "title": "Reason for change",
+      "maxLength": 300
+    },
+    "reply_days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60,
+      "title": "Reply within (days)",
+      "default": 7
+    }
+  },
+  "required": [
+    "reference",
+    "letter_date",
+    "auditor_firm",
+    "auditor_address"
+  ]
+}

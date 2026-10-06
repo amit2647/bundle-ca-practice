@@ -1,0 +1,26 @@
+<p class="letter-meta">Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">{{firm.name}}<br>Chartered Accountants<br>{{firm.address}}</p>
+<p class="subject">Subject: Representation letter for the audit of the financial statements of {{client.name}} for the year ending {{date period.end}} (SA 580)</p>
+<p>Dear Sirs,</p>
+<p><mark class="doc-placeholder">[Wording: purpose of the letter and management's responsibility for the financial statements]</mark></p>
+<table class="representations">
+<tr><td>Revenue from operations</td><td>{{#if fields.revenue}}{{money fields.revenue}}{{else}}{{fields.revenue}}{{/if}}</td></tr>
+<tr><td>Profit / (loss) before tax</td><td>{{#if fields.profit}}{{money fields.profit}}{{else}}{{fields.profit}}{{/if}}</td></tr>
+<tr><td>Net worth</td><td>{{#if fields.net_worth}}{{money fields.net_worth}}{{else}}{{fields.net_worth}}{{/if}}</td></tr>
+<tr><td>Uncorrected misstatements</td><td class="{{#if (eq fields.uncorrected_misstatements "listed")}}doc-adverse{{else}}doc-favourable{{/if}}">{{#if (eq fields.uncorrected_misstatements "none")}}None{{else}}{{#if (eq fields.uncorrected_misstatements "immaterial")}}Immaterial, individually and together{{else}}As listed in the attached schedule{{/if}}{{/if}}</td></tr>
+<tr><td>Statutory dues</td><td class="{{#if fields.statutory_dues_paid}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.statutory_dues_paid}}Deposited on time{{else}}Not all deposited on time{{/if}}</td></tr>
+<tr><td>Internal financial controls</td><td class="{{#if fields.ifc_effective}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.ifc_effective}}Operating effectively{{else}}Not operating effectively{{/if}}</td></tr>
+<tr><td>Fraud</td><td class="{{#if fields.fraud_known}}doc-adverse{{else}}doc-favourable{{/if}}">{{#if fields.fraud_known}}Fraud known to management{{else}}No fraud known to management{{/if}}</td></tr>
+<tr><td>Laws and regulations</td><td class="{{#if fields.non_compliance}}doc-adverse{{else}}doc-favourable{{/if}}">{{#if fields.non_compliance}}Instances of non-compliance{{else}}No non-compliance known{{/if}}</td></tr>
+<tr><td>Related parties</td><td class="{{#if fields.related_parties_disclosed}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.related_parties_disclosed}}All disclosed{{else}}Not all disclosed{{/if}}</td></tr>
+<tr><td>ROC filings</td><td class="{{#if fields.roc_filings_current}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.roc_filings_current}}Up to date{{else}}Not up to date{{/if}}</td></tr>
+<tr><td>Statutory registers</td><td class="{{#if fields.registers_maintained}}doc-favourable{{else}}doc-adverse{{/if}}">{{#if fields.registers_maintained}}Maintained{{else}}Not maintained{{/if}}</td></tr>
+</table>
+<p>Contingent liabilities: {{fields.contingencies}}</p>
+<p>Events after the balance sheet date: {{fields.subsequent_events}}</p>
+<p><mark class="doc-placeholder">[Wording: further representations required by SA 580]</mark></p>
+<footer class="signature">
+  <p>For {{client.name}}</p>
+  <p class="signature-space"></p>
+  <p>{{fields.signatory_one}}{{#if fields.signatory_two}} &nbsp;&nbsp;&nbsp; {{fields.signatory_two}}{{/if}}</p>
+</footer>

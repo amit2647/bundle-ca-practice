@@ -1,0 +1,18 @@
+{
+  "letter_date": {
+    "ui:prefill": "today",
+    "ui:widget": "date"
+  },
+  "fee": {
+    "ui:prefill": "engagement.fee_total"
+  },
+  "due_date": {
+    "ui:widget": "date"
+  },
+  "form": {
+    "ui:enumNames": [
+      "Form 3CA (accounts audited under another law)",
+      "Form 3CB"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "title": "Reference number",
+      "maxLength": 60
+    },
+    "letter_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date of letter"
+    },
+    "place": {
+      "type": "string",
+      "title": "Place of execution",
+      "maxLength": 80
+    },
+    "stamp_value": {
+      "type": "number",
+      "minimum": 0,
+      "title": "Stamp paper value"
+    },
+    "valid_months": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60,
+      "title": "Valid for (months)",
+      "default": 12
+    },
+    "revocation_days": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 90,
+      "title": "Revocation notice (days)",
+      "default": 15
+    },
+    "sub_delegation": {
+      "type": "boolean",
+      "title": "May delegate to staff",
+      "default": false
+    },
+    "witness_one": {
+      "type": "string",
+      "title": "First witness",
+      "maxLength": 120
+    },
+    "witness_two": {
+      "type": "string",
+      "title": "Second witness",
+      "maxLength": 120
+    }
+  },
+  "required": [
+    "letter_date",
+    "place",
+    "witness_one",
+    "witness_two"
+  ]
+}

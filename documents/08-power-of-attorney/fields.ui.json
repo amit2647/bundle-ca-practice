@@ -1,0 +1,9 @@
+{
+  "letter_date": {
+    "ui:prefill": "today",
+    "ui:widget": "date"
+  },
+  "place": {
+    "ui:prefill": "firm.city"
+  }
+}

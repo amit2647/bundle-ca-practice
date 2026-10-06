@@ -1,0 +1,24 @@
+<header class="letterhead">
+  <strong>{{firm.name}}</strong>
+  <span>Chartered Accountants · FRN {{firm.frn}}</span>
+  <span>{{firm.address}}</span>
+</header>
+<p class="letter-meta">Ref: {{fields.reference}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+<p class="addressee">{{fields.addressee}}<br>{{client.name}}<br>{{client.address}}</p>
+<p class="subject">Subject: Audit of the financial statements for the year ending {{date period.end}} under the Companies Act, 2013</p>
+<p>Dear Sirs,</p>
+<p><mark class="doc-placeholder">[Wording: objective and scope of the audit (SA 210)]</mark></p>
+<p>The financial statements are prepared under {{#if (eq fields.framework "ind_as")}}Indian Accounting Standards (Ind AS){{else}}the Accounting Standards (AS){{/if}} notified under Section 133 of the Companies Act, 2013.</p>
+<p><mark class="doc-placeholder">[Wording: responsibilities of the auditor]</mark></p><p><mark class="doc-placeholder">[Wording: responsibilities of management]</mark></p>
+{{#if fields.caro}}<p>Our report will include the matters specified in the Companies (Auditor's Report) Order, 2020.</p>{{/if}}
+{{#if fields.ifc}}<p>Our report will include our opinion on the adequacy and operating effectiveness of internal financial controls over financial reporting.</p>{{/if}}
+{{#if fields.scope_gst}}<p>The engagement also covers a review of GST compliance.</p>{{/if}}
+{{#if fields.scope_roc}}<p>The engagement also covers the annual ROC filings.</p>{{/if}}
+{{#if fields.scope_internal_audit}}<p>The engagement also covers internal audit.</p>{{/if}}
+<p>Our fee for the audit is {{#if fields.fee}}{{money fields.fee}}{{else}}{{fields.fee}}{{/if}}, plus out-of-pocket expenses of {{#if fields.expenses}}{{money fields.expenses}}{{else}}{{fields.expenses}}{{/if}} and applicable taxes.</p>
+<p><mark class="doc-placeholder">[Wording: acceptance and acknowledgement]</mark></p><footer class="signature">
+  <p>For {{firm.name}}<br>Chartered Accountants<br>FRN {{firm.frn}}</p>
+  <p class="signature-space"></p>
+  <p>{{signatory.name}}<br>{{signatory.designation}}<br>Membership No. {{signatory.membership_no}}</p>
+  <p>Place: {{firm.city}}<br>Date: {{#if fields.letter_date}}{{date fields.letter_date}}{{else}}{{fields.letter_date}}{{/if}}</p>
+</footer>

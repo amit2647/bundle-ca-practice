@@ -1,0 +1,34 @@
+{
+  "letter_date": {
+    "ui:prefill": "today",
+    "ui:widget": "date"
+  },
+  "resolution_date": {
+    "ui:widget": "date",
+    "ui:prefill": "engagement.appointment_on"
+  },
+  "replacing": {
+    "ui:prefill": "engagement.attributes.previous_auditor.firm"
+  },
+  "resolution_type": {
+    "ui:enumNames": [
+      "Board of Directors",
+      "Annual general meeting",
+      "Extraordinary general meeting"
+    ]
+  },
+  "peer_review": {
+    "ui:enumNames": [
+      "Holds a valid peer review certificate",
+      "Applied for peer review",
+      "Not applicable"
+    ]
+  },
+  "firm_type": {
+    "ui:enumNames": [
+      "Partnership firm",
+      "LLP",
+      "Proprietorship"
+    ]
+  }
+}

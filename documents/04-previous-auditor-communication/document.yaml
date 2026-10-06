@@ -1,0 +1,5 @@
+key: previous_auditor_letter
+name: "Communication to the previous auditor"
+revision: 1
+badge: ICAI
+enabledWhen: {"filled": {"var": "engagement.attributes.previous_auditor.firm"}}
