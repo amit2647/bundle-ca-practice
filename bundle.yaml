@@ -11,10 +11,11 @@
 # [Wording: …] for the firm to supply (they cannot be finalized until it is).
 # v0.6 (M6): the nine client portals for the credentials vault, the signed
 # consent that must be on file first, and the power of attorney listing only
-# the portals a client uses (FIX-22).
+# the portals a client uses (FIX-22). v0.7 (M7): the dashboard cards
+# (DASH-01) and help for documents and credentials.
 key: ca-practice
 namespace: ca
-version: 0.6.0
+version: 0.7.2
 contract: 1
 name: CA Practice
 description: Clients, engagements per financial year, compliance deadlines, engagement letters and portal credentials for a chartered accountancy firm.
@@ -101,6 +102,8 @@ catalog: catalog.yaml
 obligations: rules/
 # One folder per letter; the numbers set the order they are offered in (DOC-01–08).
 documents: documents/
+# The Dashboard's cards (DASH-01).
+dashboard: cards.yaml
 
 permissions:
   - { code: ca.udin.manage, name: Manage UDINs, description: Record and update UDINs against signed reports }

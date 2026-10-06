@@ -1,0 +1,10 @@
+# The Dashboard's cards for a CA firm (DASH-01), in order; with the bundle
+# installed they take the place of the core lead and customer cards. Each
+# names a query dashboard-service runs over the caller's own view of the
+# data, and the permission a person needs to see it. Four only: what needs
+# doing, not the service mix (Clients shows that).
+cards:
+  - { key: clients, label: Clients, permission: customers.read, query: { name: clients_total } }
+  - { key: prospects, label: Prospects, permission: leads.read, query: { name: prospects_open } }
+  - { key: overdue, label: Overdue deadlines, permission: obligations.read, query: { name: obligations_by_state, params: { state: overdue } } }
+  - { key: in_progress, label: In progress, permission: obligations.read, query: { name: obligations_by_state, params: { state: in_progress } } }
